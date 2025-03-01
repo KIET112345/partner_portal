@@ -1,0 +1,66 @@
+<p-table
+  stripedRows
+  [columns]="selectedColumns"
+  [value]="partners"
+  [paginator]="true"
+  [rows]="16"
+  [first]="first"
+  [showCurrentPageReport]="true"
+  [tableStyle]="{ 'min-width': '50rem' }"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  (onPage)="pageChange($event)"
+  lazy="true"
+>
+  <ng-template #caption>
+    <p-datepicker [(ngModel)]="rangeDates" selectionMode="range" [showIcon]="true" [readonlyInput]="true">
+    </p-datepicker>
+    <p-multiselect
+      [options]="cols"
+      optionLabel="name"
+      [(ngModel)]="selectedColumns"
+      selectedItemsLabel="Choose Columns"
+      [style]="{ 'min-width': '200px' }"
+      placeholder="Choose Columns"
+    >
+      <ng-template pTemplate="dropdownicon">
+        <i class="pi pi-align-justify"></i>
+      </ng-template>
+    </p-multiselect>
+    <p-toast />
+    <p-button
+      label="MessagePartners"
+      (click)="showSuccess(messageEmail)"
+      icon="pi pi-envelope"
+      iconPos="right"
+      [rounded]="true"
+      severity="info"
+    />
+    <p-button
+      label="Export List"
+      (click)="showSuccess(messageExport)"
+      icon="pi pi-download"
+      iconPos="right"
+      [rounded]="true"
+      severity="info"
+    />
+  </ng-template>
+  <ng-template #header let-columns>
+    <tr>
+      <th
+        *ngFor="let col of columns"
+        pSortableColumn="{{ col.field }}"
+        [style.width]="col.width"
+      >
+        {{ col.name }}
+        <p-sortIcon *ngIf="col.field" [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template #body let-partner let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        {{ partner[col.field] }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
