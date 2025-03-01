@@ -5,11 +5,8 @@ import { SidebarMenuComponent } from './components/sidebar-menu/sidebar-menu.com
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [CommonModule, SidebarMenuComponent, PartnerTableComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-
-}
+export class AppComponent {}

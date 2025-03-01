@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:deploy": "npx ng build --base-href 'https://KIET112345.github.io/partner_portal/'",
-    "deploy": "npx angular-cli-ghpages --dir=dist/partner_portal_page/browser"
+    "build:deploy": "npx ng build --base-href https://KIET112345.github.io/partner_portal/",
+    "deploy": "npm run build:deploy && npx angular-cli-ghpages --dir=dist/partner-portal-page/browser"
   },
   "private": true,
   "dependencies": {
