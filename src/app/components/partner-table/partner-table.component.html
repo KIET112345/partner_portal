@@ -9,7 +9,6 @@
   [tableStyle]="{ 'min-width': '50rem' }"
   currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
   (onPage)="pageChange($event)"
-  lazy="true"
 >
   <ng-template #caption>
     <p-datepicker [(ngModel)]="rangeDates" selectionMode="range" [showIcon]="true" [readonlyInput]="true">
