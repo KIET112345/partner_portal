@@ -1,3 +1,4 @@
+// Styles for paginators
 ::ng-deep .paginator {
   display: flex;
   flex-direction: column;
@@ -20,17 +21,19 @@
   display: none;
 }
 
-//table
+//Table
 ::ng-deep .p-datatable-header {
   display: flex;
   justify-content: start;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: nowrap;
 }
 
 ::ng-deep .group-btn {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 0.5rem;
   margin-left: 10rem;
 }
@@ -74,4 +77,24 @@
 ::ng-deep .p-multiselect-label.p-placeholder {
   color: white;
 }
+
+// Style datepicker
+::ng-deep .custom-datepicker .p-inputtext {
+  border: none !important;
+  height: 3rem;
+  width: 20rem;
+  padding-left: 36px !important; /* Creates space for icon on the left */
+  font-size: 14px;
+  background-color: #f8f9fa; /* Optional: Light background */
+}
+
+/* Move icon to the left */
+// ::ng-deep .custom-datepicker .p-datepicker-trigger {
+//   position: absolute;
+//   left: 8px;
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
+
+
 
