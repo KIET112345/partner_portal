@@ -1,29 +1,31 @@
-::ng-deep .p-multiselect {
-  background-color: #5E33CE;
-  border-radius: 50px;
-  padding: 8px 16px;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+::ng-deep .paginator {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center;
+  gap: 5px; /* Add spacing between rows */
 }
 
-::ng-deep .p-multiselect:hover {
-  background-color: #5E33CE;
+::ng-deep .p-paginator-current {
+  order: -1;
+  align-self: center;
 }
 
-::ng-deep .p-multiselect-label {
-  color: white !important;
-  font-weight: bold;
-  overflow: hidden;
-  text-overflow: ellipsis;
+::ng-deep .p-paginator .p-paginator-first,
+::ng-deep .p-paginator .p-paginator-last {
+  display: none;
 }
 
-::ng-deep .p-multiselect-trigger {
-  color: white !important;
+/* Ensuring buttons and page numbers are in the same row */
+::ng-deep .p-paginator-pages,
+::ng-deep .p-paginator .p-paginator-next,
+::ng-deep .p-paginator .p-paginator-prev {
+  display: flex;
+  align-items: center;
+  flex-direction: row !important;
 }
 
-::ng-deep .p-multiselect-panel {
-  border-radius: 6px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+::ng-deep .p-ripple {
+  display: flex;
+  align-items: center;
+  flex-direction: row !important;
 }

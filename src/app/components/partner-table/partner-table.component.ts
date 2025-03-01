@@ -26,7 +26,7 @@ import { PartnerService } from '../../services/parter.service';
     ToastModule,
   ],
   templateUrl: './partner-table.component.html',
-  styleUrl: './partner-table.component.css',
+  styleUrl: './partner-table.component.scss',
 })
 export class PartnerTableComponent {
   selectedColumns!: Column[];
