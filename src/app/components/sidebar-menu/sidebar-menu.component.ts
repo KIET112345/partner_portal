@@ -20,7 +20,7 @@ export class SidebarMenuComponent {
     this.items = [
       { label: 'Dashboard', icon: 'pi pi-home' },
       { label: 'Partners', icon: 'pi pi-user' },
-      { label: 'Approvals', icon: 'pi pi-check' }
+      { label: 'Approvals', icon: 'pi pi-check-square' }
   ];
   }
 }

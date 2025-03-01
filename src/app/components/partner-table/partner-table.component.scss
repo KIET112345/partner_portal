@@ -82,19 +82,11 @@
 ::ng-deep .custom-datepicker .p-inputtext {
   border: none !important;
   height: 3rem;
-  width: 20rem;
-  padding-left: 36px !important; /* Creates space for icon on the left */
-  font-size: 14px;
-  background-color: #f8f9fa; /* Optional: Light background */
+  width: 16rem;
+  padding-left: 36px !important;
+  background-color: #f8f9fa;
 }
 
-/* Move icon to the left */
-// ::ng-deep .custom-datepicker .p-datepicker-trigger {
-//   position: absolute;
-//   left: 8px;
-//   top: 50%;
-//   transform: translateY(-50%);
-// }
 
 
 
