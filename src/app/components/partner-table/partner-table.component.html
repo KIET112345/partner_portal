@@ -14,6 +14,9 @@
 >
   <ng-template #caption>
     <div class="datepicker-custom">
+      <label for="on_label" class="label-datepicker">
+        <i class="pi pi-calendar-minus"></i>
+      </label>
       <p-datepicker
         [(ngModel)]="rangeDates"
         selectionMode="range"
@@ -22,6 +25,7 @@
         dateFormat="M dd, yy"
         [iconDisplay]="'input'"
         [showIcon]="true"
+        inputId="on_label"
       >
         <ng-template #inputicon let-clickCallBack="clickCallBack">
           <i class="pi pi-caret-down" (click)="clickCallBack($event)"></i>

@@ -79,7 +79,18 @@
 }
 
 // Style datepicker
-::ng-deep .custom-datepicker .p-inputtext {
+::ng-deep .datepicker-custom {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+}
+
+::ng-deep .label-datepicker > i {
+  font-size: 2rem;
+}
+
+::ng-deep .datepicker-custom .p-inputtext {
   border: none !important;
   height: 3rem;
   width: 16rem;
