@@ -32,7 +32,7 @@ export class PartnerTableComponent {
   selectedColumns!: Column[];
   cols!: Column[];
   first = 0;
-  rows = 10;
+  rows = 16;
   partners: PartnerModel[] = [];
   selectedPartner!: PartnerModel;
   destroy$ = new Subject<void>();
@@ -66,11 +66,11 @@ export class PartnerTableComponent {
     });
     this.cols = [
       { field: 'id', name: 'ID', width: '5%' },
-      { field: 'partnerName', name: 'Name', width: '20%' },
+      { field: 'partnerName', name: 'Name', width: '15%' },
       { field: 'partnerType', name: 'Type', width: '10%' },
       { field: 'contract', name: 'Contract', width: '15%' },
       { field: 'grosssales', name: 'Gross Sales', width: '15%' },
-      { field: 'commissions', name: 'Commissions', width: '10%' },
+      { field: 'commissions', name: 'Commissions', width: '15%' },
       { field: 'conversions', name: 'Conversions', width: '15%' },
       { field: '', name: '', width: '10%' },
     ];
