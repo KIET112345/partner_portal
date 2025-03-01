@@ -13,38 +13,48 @@
   showFirstLastIcon="false"
 >
   <ng-template #caption>
-    <p-datepicker [(ngModel)]="rangeDates" selectionMode="range" [showIcon]="true" [readonlyInput]="true">
-    </p-datepicker>
-    <p-multiselect
-      [options]="cols"
-      optionLabel="name"
-      [(ngModel)]="selectedColumns"
-      selectedItemsLabel="Choose Columns"
-      [style]="{ 'min-width': '200px' }"
-      placeholder="Choose Columns"
-      styleClass="p-button-rounded p-button-info"
-    >
-      <ng-template pTemplate="dropdownicon">
-        <i class="pi pi-align-justify"></i>
-      </ng-template>
-    </p-multiselect>
-    <p-toast />
-    <p-button
-      label="MessagePartners"
-      (click)="showSuccess(messageEmail)"
-      icon="pi pi-envelope"
-      iconPos="right"
-      [rounded]="true"
-      severity="info"
-    />
-    <p-button
-      label="Export List"
-      (click)="showSuccess(messageExport)"
-      icon="pi pi-download"
-      iconPos="right"
-      [rounded]="true"
-      severity="info"
-    />
+    <div class="datepicker-custom">
+      <p-datepicker
+        [(ngModel)]="rangeDates"
+        selectionMode="range"
+        [showIcon]="true"
+        [readonlyInput]="true"
+        class="custom-datepicker"
+      >
+      </p-datepicker>
+    </div>
+    <div class="group-btn">
+      <p-multiselect
+        [options]="cols"
+        optionLabel="name"
+        [(ngModel)]="selectedColumns"
+        selectedItemsLabel="Choose Columns"
+        [style]="{ 'min-width': '200px' }"
+        placeholder="Choose Columns"
+        styleClass="p-button-rounded p-button-info"
+      >
+        <ng-template pTemplate="dropdownicon">
+          <i class="pi pi-align-justify"></i>
+        </ng-template>
+      </p-multiselect>
+      <p-toast />
+      <p-button
+        label="MessagePartners"
+        (click)="showSuccess(messageEmail)"
+        icon="pi pi-envelope"
+        iconPos="right"
+        [rounded]="true"
+        severity="info"
+      />
+      <p-button
+        label="Export List"
+        (click)="showSuccess(messageExport)"
+        icon="pi pi-download"
+        iconPos="right"
+        [rounded]="true"
+        severity="info"
+      />
+    </div>
   </ng-template>
   <ng-template #header let-columns>
     <tr>
