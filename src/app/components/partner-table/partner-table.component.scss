@@ -15,17 +15,7 @@
   display: none;
 }
 
-/* Ensuring buttons and page numbers are in the same row */
-::ng-deep .p-paginator-pages,
 ::ng-deep .p-paginator .p-paginator-next,
 ::ng-deep .p-paginator .p-paginator-prev {
-  display: flex;
-  align-items: center;
-  flex-direction: row !important;
-}
-
-::ng-deep .p-ripple {
-  display: flex;
-  align-items: center;
-  flex-direction: row !important;
+  display: none;
 }
