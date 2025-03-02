@@ -7,6 +7,7 @@ import { DatePickerModule } from 'primeng/datepicker';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { Subject, takeUntil } from 'rxjs';
 
 import { PartnerModel } from '../../interfaces/header.model';
@@ -24,6 +25,7 @@ import { PartnerService } from '../../services/parter.service';
     CommonModule,
     FormsModule,
     ToastModule,
+    ProgressSpinnerModule
   ],
   templateUrl: './partner-table.component.html',
   styleUrl: './partner-table.component.scss',
@@ -39,6 +41,7 @@ export class PartnerTableComponent {
   messageEmail: string = MESSAGE.sendMail;
   messageExport: string = MESSAGE.exportMessage;
   rangeDates!: Date[];
+  loading: boolean = true;
 
   constructor(
     private partnerService: PartnerService,
@@ -54,6 +57,7 @@ export class PartnerTableComponent {
             id: Number(partner.id),
           };
         });
+        this.loading = false;
       });
   }
 
@@ -65,14 +69,14 @@ export class PartnerTableComponent {
       };
     });
     this.cols = [
-      { field: 'id', name: 'ID', width: '5%' },
-      { field: 'partnerName', name: 'Name', width: '15%' },
-      { field: 'partnerType', name: 'Type', width: '10%' },
-      { field: 'contract', name: 'Contract', width: '15%' },
-      { field: 'grosssales', name: 'Gross Sales', width: '15%' },
-      { field: 'commissions', name: 'Commissions', width: '15%' },
-      { field: 'conversions', name: 'Conversions', width: '15%' },
-      { field: '', name: '', width: '10%' },
+      { field: 'id', name: 'ID', width: '5%', sortOrder: false },
+      { field: 'partnerName', name: 'Name', width: '20%', sortOrder: false },
+      { field: 'partnerType', name: 'Type', width: '15%', sortOrder: false },
+      { field: 'contract', name: 'Contract', width: '15%', sortOrder: false },
+      { field: 'grosssales', name: 'Gross Sales', width: '15%', sortOrder: false },
+      { field: 'commissions', name: 'Commissions', width: '15%', sortOrder: false },
+      { field: 'conversions', name: 'Conversions', width: '20%', sortOrder: false },
+      { field: '', name: '', width: '5%', sortOrder: false},
     ];
 
     this.selectedColumns = this.cols;
@@ -116,5 +120,15 @@ export class PartnerTableComponent {
       summary: 'Success',
       detail: message,
     });
+  }
+
+  toggleSort(column: Column): void {
+    if (!column.sortOrder || column.sortOrder === 0) {
+      column.sortOrder = 1;
+    } else if (column.sortOrder === 1) {
+      column.sortOrder = -1;
+    } else {
+      column.sortOrder = 0;
+    }
   }
 }

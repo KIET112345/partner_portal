@@ -1,0 +1,34 @@
+:host ::ng-deep .p-menu {
+  margin-top: 0.5rem;
+  border: none;
+}
+
+:host ::ng-deep .p-menuitem-link {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  color: #031050;
+  opacity: 0.5;
+  transition: color 0.3s, opacity 0.3s;
+  display: flex;
+  align-items: center;
+}
+:host ::ng-deep .p-menuitem-link > span {
+  margin-left: 0.5rem;
+  margin-top: 0.1rem;
+}
+
+/* Change background and icon color when active */
+:host ::ng-deep .p-menuitem-link.active {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  background-color: #031050;
+  color: #ffffff;
+  opacity: 1;
+  border-left: 0.5rem solid #FF13B8;
+  border-radius: 4px;
+}
+
+/* Change icon color when active */
+:host ::ng-deep .p-menuitem-link.active i {
+  color: #FF13B8 !important;
+}

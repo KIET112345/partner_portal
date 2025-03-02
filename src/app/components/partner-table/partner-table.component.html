@@ -1,4 +1,8 @@
+<div class="loading-container" *ngIf="loading">
+  <p-progressSpinner></p-progressSpinner>
+</div>
 <p-table
+*ngIf="!loading"
   stripedRows
   [columns]="selectedColumns"
   [value]="partners"
@@ -14,6 +18,9 @@
 >
   <ng-template #caption>
     <div class="datepicker-custom">
+      <label for="on_label" class="label-datepicker">
+        <i class="pi pi-calendar-minus"></i>
+      </label>
       <p-datepicker
         [(ngModel)]="rangeDates"
         selectionMode="range"
@@ -22,6 +29,7 @@
         dateFormat="M dd, yy"
         [iconDisplay]="'input'"
         [showIcon]="true"
+        inputId="on_label"
       >
         <ng-template #inputicon let-clickCallBack="clickCallBack">
           <i class="pi pi-caret-down" (click)="clickCallBack($event)"></i>
@@ -39,7 +47,7 @@
         styleClass="p-button-rounded p-button-info"
       >
         <ng-template pTemplate="dropdownicon">
-          <i class="pi pi-align-justify"></i>
+          <i class="pi pi-table"></i>
         </ng-template>
       </p-multiselect>
       <p-toast />
@@ -65,18 +73,35 @@
     <tr>
       <th
         *ngFor="let col of columns"
-        pSortableColumn="{{ col.field }}"
+        (click)="toggleSort(col)"
+        [style.cursor]="'pointer'"
         [style.width]="col.width"
+        pSortableColumn="{{ col.field }}"
+        class="header-custom"
       >
         {{ col.name }}
-        <p-sortIcon *ngIf="col.field" [field]="col.field"></p-sortIcon>
+        <span *ngIf="col.field">
+          <i *ngIf="col.sortOrder === 1" class="pi pi-sort-amount-up"></i>
+          <i *ngIf="col.sortOrder === -1" class="pi pi-sort-amount-down"></i>
+          <i
+            *ngIf="!col.sortOrder || col.sortOrder === 0"
+            class="pi pi-sort"
+          ></i>
+        </span>
       </th>
     </tr>
   </ng-template>
   <ng-template #body let-partner let-columns="columns">
     <tr>
       <td *ngFor="let col of columns">
-        {{ partner[col.field] }}
+        <ng-container *ngIf="partner?.[col.field]; else showButton">
+          {{ partner[col.field] }}
+        </ng-container>
+        <ng-template #showButton>
+          <p-button styleClass="btn-detail" label="Detail" icon="pi pi-list" iconPos="left" severity="info" rounded></p-button>
+        </ng-template>
+      </td>
+      <td>
       </td>
     </tr>
   </ng-template>
