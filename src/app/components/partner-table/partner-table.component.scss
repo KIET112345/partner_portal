@@ -78,6 +78,10 @@
   color: white;
 }
 
+::ng-deep .btn-detail {
+  background-color: #5E33CE;
+}
+
 // Style datepicker
 ::ng-deep .datepicker-custom {
   display: flex;
