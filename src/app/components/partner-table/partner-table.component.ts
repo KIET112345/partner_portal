@@ -65,13 +65,13 @@ export class PartnerTableComponent {
       };
     });
     this.cols = [
-      { field: 'id', name: 'ID', width: '10%', sortOrder: false },
-      { field: 'partnerName', name: 'Name', width: '15%', sortOrder: false },
-      { field: 'partnerType', name: 'Type', width: '10%', sortOrder: false },
+      { field: 'id', name: 'ID', width: '5%', sortOrder: false },
+      { field: 'partnerName', name: 'Name', width: '20%', sortOrder: false },
+      { field: 'partnerType', name: 'Type', width: '15%', sortOrder: false },
       { field: 'contract', name: 'Contract', width: '15%', sortOrder: false },
       { field: 'grosssales', name: 'Gross Sales', width: '15%', sortOrder: false },
       { field: 'commissions', name: 'Commissions', width: '15%', sortOrder: false },
-      { field: 'conversions', name: 'Conversions', width: '15%', sortOrder: false },
+      { field: 'conversions', name: 'Conversions', width: '20%', sortOrder: false },
       { field: '', name: '', width: '5%', sortOrder: false},
     ];
 
