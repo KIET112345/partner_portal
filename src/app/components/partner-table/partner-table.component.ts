@@ -65,14 +65,14 @@ export class PartnerTableComponent {
       };
     });
     this.cols = [
-      { field: 'id', name: 'ID', width: '5%' },
-      { field: 'partnerName', name: 'Name', width: '15%' },
-      { field: 'partnerType', name: 'Type', width: '10%' },
-      { field: 'contract', name: 'Contract', width: '15%' },
-      { field: 'grosssales', name: 'Gross Sales', width: '15%' },
-      { field: 'commissions', name: 'Commissions', width: '15%' },
-      { field: 'conversions', name: 'Conversions', width: '15%' },
-      { field: '', name: '', width: '10%' },
+      { field: 'id', name: 'ID', width: '10%', sortOrder: false },
+      { field: 'partnerName', name: 'Name', width: '15%', sortOrder: false },
+      { field: 'partnerType', name: 'Type', width: '10%', sortOrder: false },
+      { field: 'contract', name: 'Contract', width: '15%', sortOrder: false },
+      { field: 'grosssales', name: 'Gross Sales', width: '15%', sortOrder: false },
+      { field: 'commissions', name: 'Commissions', width: '15%', sortOrder: false },
+      { field: 'conversions', name: 'Conversions', width: '15%', sortOrder: false },
+      { field: '', name: '', width: '5%' },
     ];
 
     this.selectedColumns = this.cols;
@@ -116,5 +116,15 @@ export class PartnerTableComponent {
       summary: 'Success',
       detail: message,
     });
+  }
+
+  toggleSort(column: any) {
+    if (!column.sortOrder || column.sortOrder === 0) {
+      column.sortOrder = 1; // Ascending
+    } else if (column.sortOrder === 1) {
+      column.sortOrder = -1; // Descending
+    } else {
+      column.sortOrder = 0; // Reset sorting
+    }
   }
 }

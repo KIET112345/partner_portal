@@ -69,16 +69,22 @@
     <tr>
       <th
         *ngFor="let col of columns"
-        pSortableColumn="{{ col.field }}"
+        (click)="toggleSort(col)"
+        [style.cursor]="'pointer'"
         [style.width]="col.width"
+        pSortableColumn="{{ col.field }}"
+        class="header-custom"
       >
         {{ col.name }}
-        <p-sortIcon *ngIf="col.field" [field]="col.field">
-          <ng-template pTemplate="sorticon" let-order>
-            <i *ngIf="order === 1" class="pi pi-sort-amount-up"></i> <!-- Ascending -->
-            <i *ngIf="order === -1" class="pi pi-sort-amount-down"></i> <!-- Descending -->
-          </ng-template>
-        </p-sortIcon>
+
+        <span *ngIf="col.field">
+          <i *ngIf="col.sortOrder === 1" class="pi pi-sort-amount-up"></i>
+          <i *ngIf="col.sortOrder === -1" class="pi pi-sort-amount-down"></i>
+          <i
+            *ngIf="!col.sortOrder || col.sortOrder === 0"
+            class="pi pi-sort"
+          ></i>
+        </span>
       </th>
     </tr>
   </ng-template>
