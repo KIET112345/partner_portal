@@ -1,4 +1,8 @@
+<div class="loading-container" *ngIf="loading">
+  <p-progressSpinner></p-progressSpinner>
+</div>
 <p-table
+*ngIf="!loading"
   stripedRows
   [columns]="selectedColumns"
   [value]="partners"

@@ -7,6 +7,7 @@ import { DatePickerModule } from 'primeng/datepicker';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { Subject, takeUntil } from 'rxjs';
 
 import { PartnerModel } from '../../interfaces/header.model';
@@ -24,6 +25,7 @@ import { PartnerService } from '../../services/parter.service';
     CommonModule,
     FormsModule,
     ToastModule,
+    ProgressSpinnerModule
   ],
   templateUrl: './partner-table.component.html',
   styleUrl: './partner-table.component.scss',
@@ -39,6 +41,7 @@ export class PartnerTableComponent {
   messageEmail: string = MESSAGE.sendMail;
   messageExport: string = MESSAGE.exportMessage;
   rangeDates!: Date[];
+  loading: boolean = true;
 
   constructor(
     private partnerService: PartnerService,
@@ -54,6 +57,7 @@ export class PartnerTableComponent {
             id: Number(partner.id),
           };
         });
+        this.loading = false;
       });
   }
 
