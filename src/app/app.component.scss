@@ -7,7 +7,7 @@
 
 .header, .footer {
   background: #333;
-  color: white;
+  color: #f1f1f1;
   text-align: center;
   padding: 1rem;
 }
@@ -22,13 +22,13 @@
 .sidebar {
   width: 250px;
   background: #555;
-  color: white;
+  color: #F1F1F1;
   padding: 1rem;
 }
 
 .content {
   flex: 1;
-  background: #f4f4f4;
+  background: #FCFCFC;
 }
 
 .footer {
