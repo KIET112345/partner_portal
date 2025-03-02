@@ -72,7 +72,7 @@ export class PartnerTableComponent {
       { field: 'grosssales', name: 'Gross Sales', width: '15%', sortOrder: false },
       { field: 'commissions', name: 'Commissions', width: '15%', sortOrder: false },
       { field: 'conversions', name: 'Conversions', width: '15%', sortOrder: false },
-      { field: '', name: '', width: '5%' },
+      { field: '', name: '', width: '5%', sortOrder: false},
     ];
 
     this.selectedColumns = this.cols;
@@ -118,13 +118,13 @@ export class PartnerTableComponent {
     });
   }
 
-  toggleSort(column: any) {
+  toggleSort(column: Column): void {
     if (!column.sortOrder || column.sortOrder === 0) {
-      column.sortOrder = 1; // Ascending
+      column.sortOrder = 1;
     } else if (column.sortOrder === 1) {
-      column.sortOrder = -1; // Descending
+      column.sortOrder = -1;
     } else {
-      column.sortOrder = 0; // Reset sorting
+      column.sortOrder = 0;
     }
   }
 }
