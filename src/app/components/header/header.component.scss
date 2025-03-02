@@ -1,8 +1,42 @@
-::ng-deep .header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+.header-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8rem;
+}
+
+.logo {
+  margin-left: 1rem;
+}
+
+//Menu
+::ng-deep .p-select.p-variant-filled {
+  width: 18.5rem;
+  border: none;
+  color: #9097B9;
+  font-weight: bold;
+}
+// Dashboard
+::ng-deep .p-select-label {
+  color: #9097B9;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+// label
+p-floatlabel label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+//End menu
 
 .test {
   display: flex;
