@@ -73,7 +73,12 @@
         [style.width]="col.width"
       >
         {{ col.name }}
-        <p-sortIcon *ngIf="col.field" [field]="col.field"></p-sortIcon>
+        <p-sortIcon *ngIf="col.field" [field]="col.field">
+          <ng-template pTemplate="sorticon" let-order>
+            <i *ngIf="order === 1" class="pi pi-sort-amount-up"></i> <!-- Ascending -->
+            <i *ngIf="order === -1" class="pi pi-sort-amount-down"></i> <!-- Descending -->
+          </ng-template>
+        </p-sortIcon>
       </th>
     </tr>
   </ng-template>

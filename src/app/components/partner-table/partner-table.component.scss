@@ -1,25 +1,25 @@
 // Styles for paginators
-::ng-deep .paginator {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-}
+// ::ng-deep .paginator {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   gap: 5px;
+// }
 
-::ng-deep .p-paginator-current {
-  order: -1;
-  align-self: center;
-}
+// ::ng-deep .p-paginator-current {
+//   order: -1;
+//   align-self: center;
+// }
 
-::ng-deep .p-paginator .p-paginator-first,
-::ng-deep .p-paginator .p-paginator-last {
-  display: none;
-}
+// ::ng-deep .p-paginator .p-paginator-first,
+// ::ng-deep .p-paginator .p-paginator-last {
+//   display: none;
+// }
 
-::ng-deep .p-paginator .p-paginator-next,
-::ng-deep .p-paginator .p-paginator-prev {
-  display: none;
-}
+// ::ng-deep .p-paginator .p-paginator-next,
+// ::ng-deep .p-paginator .p-paginator-prev {
+//   display: none;
+// }
 
 //Table
 ::ng-deep .p-datatable-header {
