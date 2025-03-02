@@ -11,16 +11,33 @@ import { AvatarModule } from 'primeng/avatar';
   selector: 'app-sidebar-menu',
   imports: [MenuModule, BadgeModule, RippleModule, AvatarModule, CommonModule],
   templateUrl: './sidebar-menu.component.html',
-  styleUrl: './sidebar-menu.component.scss'
+  styleUrl: './sidebar-menu.component.scss',
 })
 export class SidebarMenuComponent {
   items: MenuItem[] | undefined;
+  activeItem: string = '';
 
   ngOnInit() {
     this.items = [
-      { label: 'Dashboard', icon: 'pi pi-home' },
-      { label: 'Partners', icon: 'pi pi-user' },
-      { label: 'Approvals', icon: 'pi pi-check-square' }
-  ];
+      {
+        label: 'Dashboard',
+        icon: 'pi pi-home',
+        command: () => this.setActive('Dashboard'),
+      },
+      {
+        label: 'Partners',
+        icon: 'pi pi-user',
+        command: () => this.setActive('Partners'),
+      },
+      {
+        label: 'Approvals',
+        icon: 'pi pi-check-square',
+        command: () => this.setActive('Approvals'),
+      },
+    ];
+  }
+
+  setActive(label: string): void {
+    this.activeItem = label;
   }
 }

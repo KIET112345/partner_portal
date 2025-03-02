@@ -15,6 +15,11 @@
 }
 
 //Menu
+.menu {
+  width: 16rem;
+  height: 3rem;
+}
+
 ::ng-deep .p-select.p-variant-filled {
   width: 18.5rem;
   border: none;
@@ -42,11 +47,6 @@ p-floatlabel label {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-}
-
-.menu {
-  width: 16rem;
-  height: 3rem;
 }
 
 .test .circle {
