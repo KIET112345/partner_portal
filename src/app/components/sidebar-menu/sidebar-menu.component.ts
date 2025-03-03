@@ -35,6 +35,7 @@ export class SidebarMenuComponent {
         command: () => this.setActive('Approvals'),
       },
     ];
+    this.activeItem = this.items[0].label ?? '';
   }
 
   setActive(label: string): void {

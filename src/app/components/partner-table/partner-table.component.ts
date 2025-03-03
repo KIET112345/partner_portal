@@ -27,7 +27,7 @@ import { PartnerService } from '../../services/parter.service';
     FormsModule,
     ToastModule,
     ProgressSpinnerModule,
-    PaginatorModule
+    PaginatorModule,
   ],
   templateUrl: './partner-table.component.html',
   styleUrl: './partner-table.component.scss',
@@ -38,7 +38,7 @@ export class PartnerTableComponent {
   first = 0;
   rows = 16;
   partners: PartnerModel[] = [];
-  displayedPartners: PartnerModel[] = []
+  displayedPartners: PartnerModel[] = [];
   selectedPartner!: PartnerModel;
   destroy$ = new Subject<void>();
   messageEmail: string = MESSAGE.sendMail;
@@ -77,13 +77,32 @@ export class PartnerTableComponent {
       { field: 'partnerName', name: 'Name', width: '20%', sortOrder: false },
       { field: 'partnerType', name: 'Type', width: '15%', sortOrder: false },
       { field: 'contract', name: 'Contract', width: '15%', sortOrder: false },
-      { field: 'grosssales', name: 'Gross Sales', width: '15%', sortOrder: false },
-      { field: 'commissions', name: 'Commissions', width: '15%', sortOrder: false },
-      { field: 'conversions', name: 'Conversions', width: '20%', sortOrder: false },
-      { field: '', name: '', width: '5%', sortOrder: false},
+      {
+        field: 'grosssales',
+        name: 'Gross Sales',
+        width: '15%',
+        sortOrder: false,
+      },
+      {
+        field: 'commissions',
+        name: 'Commissions',
+        width: '15%',
+        sortOrder: false,
+      },
+      {
+        field: 'conversions',
+        name: 'Conversions',
+        width: '20%',
+        sortOrder: false,
+      },
+      { field: '', name: '', width: '5%', sortOrder: false },
     ];
 
     this.selectedColumns = this.cols;
+    const fromDate = new Date();
+    const toDate = new Date();
+    toDate.setDate(toDate.getDate() + 1);
+    this.rangeDates = [fromDate, toDate];
   }
 
   ngOnDestroy() {
@@ -128,7 +147,9 @@ export class PartnerTableComponent {
   }
 
   updateDisplayedPartners(): void {
-    this.displayedPartners = this.partners.slice(this.first, this.first + this.rows);
+    this.displayedPartners = this.partners.slice(
+      this.first,
+      this.first + this.rows
+    );
   }
-
 }

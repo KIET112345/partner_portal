@@ -41,22 +41,29 @@
 ::ng-deep .p-button-info,
 ::ng-deep .p-multiselect {
   height: 2.8rem;
-  background-color: #031050;
+  background-color: #031050 !important;
   color: white;
 }
 
 ::ng-deep .p-multiselect-label-container {
   display: flex;
   align-items: center;
+  flex: 0 0 auto !important;
+
+  .p-multiselect-label.p-placeholder {
+    color: white;
+
+  }
 }
 
-::ng-deep .p-multiselect-dropdown,
-::ng-deep .p-multiselect-label.p-placeholder {
-  color: white;
+::ng-deep .p-multiselect-dropdown {
+  .p-multiselect-dropdown-icon {
+    color: white;
+  }
 }
 
 ::ng-deep .btn-detail {
-  background-color: #5E33CE;
+  background-color: rgba($color: #5E33CE, $alpha: 1.0) !important;
 }
 
 // Style datepicker
@@ -65,10 +72,14 @@
   align-items: center;
   background-color: #f8f9fa;
   border-radius: 0.5rem;
+
+  #on_label {
+    font-size: 14px;
+  }
 }
 
 ::ng-deep .label-datepicker > i {
-  font-size: 2rem;
+  font-size: 24px;
 }
 
 ::ng-deep .datepicker-custom .p-inputtext {
