@@ -96,6 +96,7 @@
 }
 
 ::ng-deep .paginator-text {
+  margin-top: 0.4rem;
   font-size: 0.8rem;
 }
 
@@ -103,6 +104,11 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+::ng-deep .p-paginator-page.p-paginator-page-selected {
+  color: #fcfcfc;
+  background-color: #4F26B8;
 }
 
 
