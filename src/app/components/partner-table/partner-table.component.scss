@@ -1,26 +1,3 @@
-// Styles for paginators
-// ::ng-deep .paginator {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   gap: 5px;
-// }
-
-// ::ng-deep .p-paginator-current {
-//   order: -1;
-//   align-self: center;
-// }
-
-// ::ng-deep .p-paginator .p-paginator-first,
-// ::ng-deep .p-paginator .p-paginator-last {
-//   display: none;
-// }
-
-// ::ng-deep .p-paginator .p-paginator-next,
-// ::ng-deep .p-paginator .p-paginator-prev {
-//   display: none;
-// }
-
 //Table
 ::ng-deep .p-datatable-header {
   display: flex;
@@ -39,7 +16,7 @@
 }
 
 ::ng-deep .p-datatable .p-datatable-tbody > tr {
-  height: 35px;
+  height: 2rem;
 }
 ::ng-deep .p-datatable .p-datatable-thead > tr {
   height: 50px;
@@ -63,7 +40,7 @@
 // Styles for the buttons
 ::ng-deep .p-button-info,
 ::ng-deep .p-multiselect {
-  height: 2.85rem;
+  height: 2.8rem;
   background-color: #031050;
   color: white;
 }
@@ -109,6 +86,32 @@
   align-items: center;
   height: 100vh;
 }
+
+
+// Styles for paginators
+::ng-deep .custom-paginator-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+::ng-deep .paginator-text {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+}
+
+::ng-deep .paginator-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+::ng-deep .p-paginator-page.p-paginator-page-selected {
+  color: #fcfcfc;
+  background-color: #4F26B8;
+}
+
+
 
 
 
