@@ -8,6 +8,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { PaginatorModule } from 'primeng/paginator';
 import { Subject, takeUntil } from 'rxjs';
 
 import { PartnerModel } from '../../interfaces/header.model';
@@ -25,7 +26,8 @@ import { PartnerService } from '../../services/parter.service';
     CommonModule,
     FormsModule,
     ToastModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    PaginatorModule
   ],
   templateUrl: './partner-table.component.html',
   styleUrl: './partner-table.component.scss',
@@ -36,6 +38,7 @@ export class PartnerTableComponent {
   first = 0;
   rows = 16;
   partners: PartnerModel[] = [];
+  displayedPartners: PartnerModel[] = []
   selectedPartner!: PartnerModel;
   destroy$ = new Subject<void>();
   messageEmail: string = MESSAGE.sendMail;
@@ -57,6 +60,7 @@ export class PartnerTableComponent {
             id: Number(partner.id),
           };
         });
+        this.updateDisplayedPartners();
         this.loading = false;
       });
   }
@@ -87,31 +91,10 @@ export class PartnerTableComponent {
     this.destroy$.complete();
   }
 
-  next() {
-    this.first = this.first + this.rows;
-  }
-
-  prev() {
-    this.first = this.first - this.rows;
-  }
-
-  reset() {
-    this.first = 0;
-  }
-
   pageChange(event: any) {
     this.first = event.first;
     this.rows = event.rows;
-  }
-
-  isLastPage(): boolean {
-    return this.partners
-      ? this.first + this.rows >= this.partners.length
-      : true;
-  }
-
-  isFirstPage(): boolean {
-    return this.partners ? this.first === 0 : true;
+    this.updateDisplayedPartners();
   }
 
   showSuccess(message: string): void {
@@ -131,4 +114,21 @@ export class PartnerTableComponent {
       column.sortOrder = 0;
     }
   }
+
+  goToPage(first: number): void {
+    if (first >= 0 && first < this.partners.length) {
+      this.first = first;
+    }
+    this.updateDisplayedPartners();
+  }
+
+  getPages(): number[] {
+    const pages = Math.ceil(this.partners.length / this.rows);
+    return Array.from({ length: pages }, (_, i) => i);
+  }
+
+  updateDisplayedPartners(): void {
+    this.displayedPartners = this.partners.slice(this.first, this.first + this.rows);
+  }
+
 }
